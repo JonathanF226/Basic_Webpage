@@ -100,12 +100,15 @@
             "Page protocol is: " + window.location.protocol;
 
             if ("geolocation" in navigator) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                document.getElementById("Latitude").innerHTML =
-                    "Latitude: " + position.coords.latitude;
-                document.getElementById("Longitude").innerHTML =
-                    "Longitude: " + position.coords.longitude;
-            });
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    document.getElementById("Latitude").innerHTML =
+                        "Latitude: " + position.coords.latitude;
+                    document.getElementById("Longitude").innerHTML =
+                        "Longitude: " + position.coords.longitude;
+                }, function (error) {
+                    document.getElementById("Latitude").innerHTML = "Geolocation Latitude error: " + error.message;
+                    document.getElementById("Longitude").innerHTML = "Geolocation Longitude error: " + error.message;
+                });
             } else {
                 document.getElementById("Latitude").innerHTML = "Geolocation not supported";
                 document.getElementById("Longitude").innerHTML = "Geolocation not supported";
