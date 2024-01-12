@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Fetch and insert the navigation bar content
+                fetch('navbar.html')
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('navbar-container').innerHTML = html;
+                    });
+            });
+        </script>
+    </head>
+    <body class="browser">
+        <div id="navbar-container"></div>
+        
+        <section id="navigatorSection">
+            <h3>Navigator</h3>
+            <p id="appName"></p>
+            <p id="product"></p>
+            <p id="appVersion"></p>
+            <p id="userAgent"></p>
+            <p id="platform"></p>
+            <p id="language"></p>
+        </section>
+    
+        <section id="windowSection">
+            <h3>Window</h3>
+            <p id="innerHeight"></p>
+            <p id="innerWidth"></p>
+        </section>
+    
+        <section id="screenSection">
+            <h3>Screen</h3>
+            <p id="width"></p>
+            <p id="height"></p>
+            <p id="availWidth"></p>
+            <p id="availHeight"></p>
+            <p id="colorDepth"></p>
+            <p id="pixelDepth"></p>
+        </section>
+    
+        <section id="locationSection">
+            <h3>Location</h3>
+            <p id="href"></p>
+            <p id="hostname"></p>
+            <p id="pathname"></p>
+            <p id="protocol"></p>
+        </section>
+    
+        <section id="geolocationSection">
+            <h3>Geolocation</h3>
+            <p id="Latitude"></p>
+            <p id="Longitude"></p>
+        </section>
+
+        <script>
+            document.getElementById("appName").innerHTML =
+            "navigator.appName is: " + navigator.appName;
+            document.getElementById("product").innerHTML =
+            "navigator.product is: " + navigator.product;
+            document.getElementById("appVersion").innerHTML =
+            "navigator.appVersion is: " + navigator.appVersion;
+            document.getElementById("userAgent").innerHTML =
+            "navigator.userAgent is: " + navigator.userAgent;
+            document.getElementById("platform").innerHTML =
+            "navigator.platform is: " + navigator.platform;
+            document.getElementById("language").innerHTML =
+            "navigator.language is: " + navigator.language;
+
+            document.getElementById("innerHeight").innerHTML =
+            "window.innerHeight is: " + window.innerHeight + "px";
+            document.getElementById("innerWidth").innerHTML =
+            "window.innerWidth is: " + window.innerWidth + "px";
+
+            document.getElementById("width").innerHTML =
+            "Screen Width is: " + screen.width;
+            document.getElementById("height").innerHTML =
+            "Screen Height is: " + screen.height;
+            document.getElementById("availWidth").innerHTML =
+            "Available Screen Width: " + screen.availWidth;
+            document.getElementById("availHeight").innerHTML =
+            "Available Screen Height: " + screen.availHeight;
+            document.getElementById("colorDepth").innerHTML =
+            "Screen Color Depth: " + screen.colorDepth;
+            document.getElementById("pixelDepth").innerHTML =
+            "Screen Pixel Depth: " + screen.pixelDepth; 
+
+            document.getElementById("href").innerHTML =
+            "Page location is: " + window.location.href;
+            document.getElementById("hostname").innerHTML =
+            "Page hostname is: " + window.location.hostname;
+            document.getElementById("pathname").innerHTML =
+            "Page path is: " + window.location.pathname;
+            document.getElementById("protocol").innerHTML =
+            "Page protocol is: " + window.location.protocol;
+
+            if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                document.getElementById("Latitude").innerHTML =
+                    "Latitude: " + position.coords.latitude;
+                document.getElementById("Longitude").innerHTML =
+                    "Longitude: " + position.coords.longitude;
+            });
+            } else {
+                document.getElementById("Latitude").innerHTML = "Geolocation not supported";
+                document.getElementById("Longitude").innerHTML = "Geolocation not supported";
+            }
+        </script>
+    </body>
+</html>

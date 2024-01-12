@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Fetch and insert the navigation bar content
+                fetch('navbar.html')
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('navbar-container').innerHTML = html;
+                    });
+            });
+        </script>
+    </head>
+    <body class="about">
+        <div id="navbar-container"></div>
+
+        <section id="descriptionSection">
+            <h1>Description</h1>
+            <p id="desc">Hello, my name is Jonathan Flores! I am pursing a degree in Computer Science
+                at Queens College.</p>
+        </section>
+        <section id="contactSection">
+            <h1>Contact</h1>
+            <form action="mailto:jonathan.flores08@qmail.cuny.edu" method="post" enctype="text/plain">
+                Name:<br>
+                <input type="text" name="name"><br>
+                E-mail:<br>
+                <input type="text" name="mail"><br>
+                Comment:<br>
+                <input type="text" name="comment" size="50"><br><br>
+                <input type="submit" value="Send">
+                <input type="reset" value="Reset">
+            </form>
+        </section>
+    </body>
+</html>

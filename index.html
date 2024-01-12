@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Fetch and insert the navigation bar content
+                fetch('navbar.html')
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('navbar-container').innerHTML = html;
+                    });
+            });
+        </script>
+    </head>
+    <body class="home">
+        <div id="navbar-container"></div>
+
+        <h1>Queens College</h1>
+        <h1>Internet and Web Technology (CSCI 355)</h1>
+        <h1>Winter 2024</h1>
+        <h1>Assignment 5</h1>
+        <h1>Jonathan Flores</h1>
+
+    </body>
+</html>
